@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사단법인 샬롬브릿지 | 관리자 통합 운영 포털</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. Admin Login Screen
+       ========================================================================== -->
+  <div class="admin-login-screen" id="admin-login-screen">
+    <div class="login-box">
+      <div class="login-logo">
+        <img src="assets/logo.png" alt="샬롬브릿지">
+      </div>
+      <h2 class="login-title">사단법인 샬롬브릿지</h2>
+      <p class="login-subtitle">통합 관리자 및 운영 포털 로그인</p>
+
+      <form id="admin-login-form" class="login-form">
+        <div class="admin-form-group">
+          <label class="admin-label" for="admin-id">관리자 아이디</label>
+          <input type="text" id="admin-id" class="admin-input" placeholder="admin" required autocomplete="username">
+        </div>
+
+        <div class="admin-form-group">
+          <label class="admin-label" for="admin-pw">관리자 비밀번호</label>
+          <input type="password" id="admin-pw" class="admin-input" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="admin-btn admin-btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          관리자 포털 로그인
+        </button>
+      </form>
+
+      <div class="login-credentials-hint">
+        🔑 <strong>테스트 관리자 계정 정보</strong><br>
+        아이디: <code>admin</code> &nbsp;|&nbsp; 비밀번호: <code>shalom2026!</code>
+      </div>
+      
+      <div style="margin-top: 18px;">
+        <a href="index.html" style="font-size: 0.85rem; color: #64748b; text-decoration: none;">← 샬롬브릿지 홈페이지로 돌아가기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. Admin Dashboard Layout (Main View)
+       ========================================================================== -->
+  <div class="admin-layout" id="admin-layout">
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/logo.png" alt="샬롬브릿지" class="sidebar-logo">
+        <div class="sidebar-brand-text">
+          <h3>샬롬브릿지</h3>
+          <span>ADMIN PORTAL</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="sidebar-nav-btn active" data-tab="overview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          통합 운영 현황
+        </button>
+
+        <button class="sidebar-nav-btn" data-tab="members">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          회원 가입 관리
+        </button>
+
+        <button class="sidebar-nav-btn" data-tab="applications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          긴급지원 & 상담 신청
+        </button>
+
+        <button class="sidebar-nav-btn" data-tab="donations">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          후원금 & 동역자 관리
+        </button>
+
+        <button class="sidebar-nav-btn" data-tab="template">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          자동 감사인사 서신 설정
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar">관</div>
+          <div class="user-info">
+            <h5>최고 관리자</h5>
+            <span>admin@shalom.org</span>
+          </div>
+        </div>
+        <button class="btn-logout" id="admin-logout-btn" title="로그아웃">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+      <div class="admin-header">
+        <div class="admin-page-title">
+          <h1 id="admin-title-h1">통합 운영 현황</h1>
+          <p id="admin-title-p">샬롬브릿지의 회원, 긴급지원, 후원 지표를 한눈에 파악합니다.</p>
+        </div>
+        <div class="admin-header-actions">
+          <a href="index.html" class="btn-site-link" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            홈페이지 바로가기
+          </a>
+        </div>
+      </div>
+
+      <!-- KPI Stats Grid -->
+      <div class="admin-stats-grid">
+        <div class="stat-kpi-card">
+          <div class="kpi-icon-box green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="kpi-details">
+            <h4>총 등록 회원수</h4>
+            <div class="kpi-value" id="kpi-total-members">0명</div>
+            <div class="kpi-sub">목회자/사모/PK/성도</div>
+          </div>
+        </div>
+
+        <div class="stat-kpi-card">
+          <div class="kpi-icon-box blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="kpi-details">
+            <h4>긴급지원·상담 접수</h4>
+            <div class="kpi-value" id="kpi-total-apps">0건</div>
+            <div class="kpi-sub">누적 신청 건수</div>
+          </div>
+        </div>
+
+        <div class="stat-kpi-card">
+          <div class="kpi-icon-box red">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="kpi-details">
+            <h4>지원 확정 및 구호</h4>
+            <div class="kpi-value" id="kpi-approved-apps">0건</div>
+            <div class="kpi-sub">의료비·생계비 집행</div>
+          </div>
+        </div>
+
+        <div class="stat-kpi-card">
+          <div class="kpi-icon-box gold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="kpi-details">
+            <h4>총 후원 약정액</h4>
+            <div class="kpi-value" id="kpi-monthly-donations">0원</div>
+            <div class="kpi-sub">정기 & 일시 동역 기금</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           Tab 1: Overview
+           ====================================================================== -->
+      <div class="admin-tab-panel active" id="tab-overview">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          
+          <!-- Recent Members -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h3 class="admin-card-title">최근 가입 회원</h3>
+            </div>
+            <div class="data-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>이름</th>
+                    <th>구분</th>
+                    <th>소속</th>
+                    <th>가입일</th>
+                  </tr>
+                </thead>
+                <tbody id="overview-recent-members"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Recent Applications -->
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h3 class="admin-card-title">최근 긴급지원 및 상담 신청</h3>
+            </div>
+            <div class="data-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>신청자</th>
+                    <th>신청 분야</th>
+                    <th>상태</th>
+                    <th>접수일</th>
+                  </tr>
+                </thead>
+                <tbody id="overview-recent-apps"></tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           Tab 2: Members Management
+           ====================================================================== -->
+      <div class="admin-tab-panel" id="tab-members">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">등록 회원 전체 목록</h3>
+            <div class="table-toolbar">
+              <select id="member-role-filter" class="filter-select">
+                <option value="all">전체 회원 구분</option>
+                <option value="pastor">목사 / 목회자</option>
+                <option value="spouse">사모</option>
+                <option value="pk">PK 자녀</option>
+                <option value="missionary">선교사</option>
+                <option value="donor">후원 성도</option>
+              </select>
+              <input type="text" id="member-search-input" class="search-input" placeholder="이름, 교회, 이메일 검색...">
+            </div>
+          </div>
+          <div class="data-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>성명</th>
+                  <th>회원 구분</th>
+                  <th>소속 교단/교회</th>
+                  <th>연락처</th>
+                  <th>이메일</th>
+                  <th>가입일시</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody id="members-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           Tab 3: Applications Management
+           ====================================================================== -->
+      <div class="admin-tab-panel" id="tab-applications">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">긴급 의료비 & 전문 상담 신청 접수처</h3>
+          </div>
+          <div class="data-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>접수번호</th>
+                  <th>신청자</th>
+                  <th>지원 분야</th>
+                  <th>소속</th>
+                  <th>연락처</th>
+                  <th>신청 내용 요약</th>
+                  <th>진행 상태</th>
+                  <th>신청일</th>
+                  <th>상태 변경</th>
+                </tr>
+              </thead>
+              <tbody id="applications-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           Tab 4: Donations Management
+           ====================================================================== -->
+      <div class="admin-tab-panel" id="tab-donations">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">후원금 및 동역자 명단</h3>
+          </div>
+          <div class="data-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>후원번호</th>
+                  <th>후원자명</th>
+                  <th>후원 유형</th>
+                  <th>약정 금액</th>
+                  <th>지정 사역</th>
+                  <th>연락처</th>
+                  <th>기부금영수증</th>
+                  <th>약정일</th>
+                </tr>
+              </thead>
+              <tbody id="donations-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           Tab 5: Welcome Message Template Settings
+           ====================================================================== -->
+      <div class="admin-tab-panel" id="tab-template">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title">회원가입 자동 감사인사 서신 템플릿</h3>
+          </div>
+          <div class="template-card-body">
+            <p style="font-size: 0.9rem; color: var(--admin-text-muted); margin-bottom: 12px;">
+              신규 회원이 가입을 완료하면 화면에 즉시 팝업되는 감사의 축복 서신 문구입니다. 아래 치환 태그를 클릭하여 삽입할 수 있습니다.
+            </p>
+
+            <div class="template-tags-hint">
+              <span class="template-tag" onclick="document.getElementById('welcome-template-textarea').value += ' {이름} '">➕ {이름} (회원 성명)</span>
+              <span class="template-tag" onclick="document.getElementById('welcome-template-textarea').value += ' {소속} '">➕ {소속} (교회/단체명)</span>
+            </div>
+
+            <textarea id="welcome-template-textarea" class="template-textarea"></textarea>
+
+            <div style="display: flex; justify-content: flex-end;">
+              <button class="admin-btn admin-btn-primary" id="save-template-btn" style="width: auto; padding: 12px 28px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                템플릿 저장하기
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
